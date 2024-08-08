@@ -120,7 +120,6 @@ const updateEventStatus = async () => {
         { $set: { status: "Ongoing" } }
       ),
     ]);
-    console.log("Event statuses updated successfully");
   } catch (err) {
     console.error("Error updating event statuses:", err);
   }

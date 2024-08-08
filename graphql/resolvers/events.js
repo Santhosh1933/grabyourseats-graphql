@@ -18,20 +18,14 @@ module.exports = {
       try {
         const query = {};
 
-        // Check if status is provided and log it
         if (status) {
-          console.log(`Filtering events with status: ${status}`);
           query.status = status;
         }
 
-        // Check if categories array is provided and has elements
         if (Array.isArray(categories) && categories.length > 0) {
           query.category = { $in: categories };
         }
 
-        console.log("Query:", query);
-
-        // Execute the query with pagination and sorting
         const res = await Event.find(query)
           .skip(start)
           .limit(end - start)
